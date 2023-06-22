@@ -33,7 +33,6 @@ public class class2 extends base{
 	}
 	public static void main(String[] args) throws ParseException {
 		class2.selectDate (330);
-		class2.selectDate(12);
 	}
 	
 }
