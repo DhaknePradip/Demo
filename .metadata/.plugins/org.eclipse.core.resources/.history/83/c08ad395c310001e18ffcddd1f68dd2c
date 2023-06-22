@@ -1,0 +1,48 @@
+package test;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
+import demo.base;
+
+public class class2 extends base{
+
+	
+	public void example() 
+	{
+		System.out.println("class 2");
+	}
+	public static void selectDate (int days) {
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+        Date currentDate = new Date();
+        String todayDate = formatter.format(currentDate);
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, days);
+        Date modifiedDate = cal.getTime();
+        String nextDate = formatter.format(modifiedDate); 
+        System.out.println(nextDate);
+	}
+	public static void main(String[] args) throws ParseException {
+		//class1 obj = new class1 ();
+		class2.selectDate (365);
+		/*String sDate1="31/12/1998";  
+	    Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+	    System.out.println(date1); */
+
+		String sDate1 = "31/12/1998";
+		DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH);
+		LocalDate date1 = LocalDate.parse(sDate1, inputFormatter);
+
+		DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("EEE MMMM yyyy", Locale.ENGLISH);
+		String formattedDate = date1.format(outputFormatter);
+
+		System.out.println(formattedDate);
+
+	}
+	
+}
